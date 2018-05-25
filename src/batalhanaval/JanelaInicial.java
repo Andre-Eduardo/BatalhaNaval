@@ -29,13 +29,12 @@ public class JanelaInicial extends JFrame {
 	       JButton botao2 = new JButton("Rank");
 	       c2.add(botao);
 	       c2.add(botao2);
-	       //c.add(BorderLayout.SOUTH,c2);
 	       add(c2);
 	     
 
-		
-
+	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false); // nao deixa mudar tamanho da janela
 		setSize(larguraJ, alturaJ); // tamanho da janela
 		setVisible(true);
 		
