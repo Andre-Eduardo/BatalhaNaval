@@ -20,6 +20,9 @@ public class ButtonClickListener implements ActionListener {
 		case "rank":
 			System.out.println("2");
 			break;
+			
+		case "file":
+			 new confJogo().arquivo();
 		}
 
 	}
