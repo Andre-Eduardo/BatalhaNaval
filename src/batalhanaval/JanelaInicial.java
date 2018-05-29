@@ -1,6 +1,5 @@
 package batalhanaval;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
 
@@ -12,13 +11,14 @@ public class JanelaInicial extends JFrame {
 	private int larguraJ = 400, alturaJ =400 ;  // tamanho da janela
 	private int botaoAltura =80, botaoLargura =100;
 
-	private JPanel tela; // tela do jogo
-
+	
+	
 	public JanelaInicial() {
 		super("Batalha Naval");
 		setLayout(null);
 		
-	
+
+		
 		Container c2 = new JPanel();
 		c2.setLayout(new GridLayout(2,1,0,10));
 		c2.setBounds((larguraJ -larguraJ/2)-(botaoLargura/2),(alturaJ-50)-botaoAltura,botaoLargura,botaoAltura); // posicionando os botoes na tela
@@ -28,8 +28,7 @@ public class JanelaInicial extends JFrame {
 	       c2.add(iniciar);
 	       c2.add(rank);
 	       add(c2);
-	       
-	       
+
 	     iniciar.setActionCommand("iniciar");
 	     rank.setActionCommand("rank");
 	     

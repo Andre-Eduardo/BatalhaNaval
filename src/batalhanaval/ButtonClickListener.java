@@ -11,6 +11,9 @@ public class ButtonClickListener implements ActionListener {
 		switch (comando) {
 		case "iniciar":
 			System.out.println("1");
+
+			new confJogo().setVisible(true);
+			
 			
 			break;
 
