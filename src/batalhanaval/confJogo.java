@@ -49,7 +49,7 @@ public class confJogo extends JFrame {
 	public void arquivo() {
 		JFileChooser chooser = new JFileChooser();
 		retorno = chooser.showOpenDialog(null);
-		System.out.println(retorno);
+		
 		
 	}
 }
