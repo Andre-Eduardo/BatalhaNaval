@@ -18,9 +18,9 @@ public class TelaJogo extends Canvas {
 
 		
 		
-		ImageIcon imgAgua = new ImageIcon("images/ondas"+ ".jpg");
+		ImageIcon imgAgua = new ImageIcon("imagens/ondas.jpg");
 
-		ImageIcon imgExplosao = new ImageIcon("images/explosion.png");
+		ImageIcon imgExplosao = new ImageIcon("imagens/explosion.png");
 		// Prepare an Image object to be used by drawImage()
 		final Image agua = imgAgua.getImage();
 		final Image explosao = imgExplosao.getImage();
