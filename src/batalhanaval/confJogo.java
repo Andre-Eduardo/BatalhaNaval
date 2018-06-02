@@ -47,9 +47,13 @@ public class confJogo extends JFrame {
 	
 	
 	public void arquivo() {
-		JFileChooser chooser = new JFileChooser();
-		retorno = chooser.showOpenDialog(null);
-		
+		//JFileChooser chooser = new JFileChooser();
+		//retorno = chooser.showOpenDialog(null);
+	//	System.out.println(retorno);
+		JFileChooser chooserArquivo = new JFileChooser();
+		int escolha = chooserArquivo.showOpenDialog(getParent());
+		String arquivo = chooserArquivo.getSelectedFile().getAbsolutePath();
+		System.out.println(arquivo);
 		
 	}
 }
