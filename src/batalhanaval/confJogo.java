@@ -20,6 +20,11 @@ public class confJogo extends JFrame {
 	private int colunaMatriz ;
 	private char[] linhaVetor ;
 	private int auxMatriz = 0; 
+	private int qtdEmbarcacoes5;
+	private int qtdEmbarcacoes4;
+	private int qtdEmbarcacoes3;
+	private int qtdEmbarcacoes2;
+	private int qtdEmbarcacoes1;
 	private TelaJogo canvas = new TelaJogo();
 	public confJogo() {
 		super("Batalha Naval");
@@ -89,6 +94,9 @@ public class confJogo extends JFrame {
 	                      
 	               }
 		        	 auxMatriz++;
+		        }
+		        if (contLinhas - linhaMatriz > 6 && contLinhas - linhaMatriz < 12) {
+		        	
 		        }
 		}
 		
