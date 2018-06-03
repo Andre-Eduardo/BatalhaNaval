@@ -82,8 +82,9 @@ public class confJogo extends JFrame {
 		        
 		        if (contLinhas > 4 && auxMatriz <= linhaMatriz ) {
 		        	 linhaVetor = linha.toCharArray();
+		        	 
 		        	 for(char c : linha.toCharArray()){
-		        		 
+		        		 canvas.setMatrizExplosao(auxMatriz, Integer.valueOf(c));
 	                      System.out.println("Char: "+c);
 	                      
 	               }
