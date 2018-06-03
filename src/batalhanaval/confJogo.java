@@ -2,6 +2,9 @@ package batalhanaval;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -12,8 +15,12 @@ public class confJogo extends JFrame {
 	private int larguraJ = 400, alturaJ =400 ;  // tamanho da janela
 	private int botaoAltura =80, botaoLargura =100;
 	private int retorno;
-	
-	
+	private int contLinhas=0;
+	private int linhaMatriz;
+	private int colunaMatriz ;
+	private char[] linhaVetor ;
+	private int auxMatriz = 0; 
+	private TelaJogo canvas = new TelaJogo();
 	public confJogo() {
 		super("Batalha Naval");
 		setLayout(null);
@@ -54,6 +61,39 @@ public class confJogo extends JFrame {
 		int escolha = chooserArquivo.showOpenDialog(getParent());
 		String arquivo = chooserArquivo.getSelectedFile().getAbsolutePath();
 		System.out.println(arquivo);
+		try {
+			 FileReader arq = new FileReader(arquivo);
+		      BufferedReader lerArq = new BufferedReader(arq);
+		 
+		      String linha = lerArq.readLine(); // lê a primeira linha
+		      contLinhas++;
+		      while (linha != null) {
+		       
+		        
+		        linha = lerArq.readLine(); // lê da segunda até a última linha
+		        contLinhas++;
+		        if(contLinhas == 2) {
+		        	linhaMatriz = Integer.valueOf(linha.substring(3, 5));
+		        	colunaMatriz = Integer.valueOf(linha.substring(0,2));
+		        	canvas.setColunas(colunaMatriz);
+		        	canvas.setLinhas(linhaMatriz);
+		        	
+		        }
+		        
+		        if (contLinhas > 4 && auxMatriz <= linhaMatriz ) {
+		        	 linhaVetor = linha.toCharArray();
+		        	 for(char c : linha.toCharArray()){
+		        		 
+	                      System.out.println("Char: "+c);
+	                      
+	               }
+		        	 auxMatriz++;
+		        }
+		}
 		
+		      arq.close();
+	    } catch (IOException e) {
+	        System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
+	    }
 	}
 }

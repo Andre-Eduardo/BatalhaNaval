@@ -55,7 +55,7 @@ public class Jogo extends JFrame  {
 		        int x_pos = x/canvas.LARGURA_IMG;
 		        int y_pos = y/canvas.ALTURA_IMG;
 
-		        canvas.setShot(x_pos, y_pos);
+		        canvas.setMatrizExplosao(x_pos, y_pos);
 				
 			}
 

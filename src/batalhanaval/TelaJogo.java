@@ -39,7 +39,7 @@ public class TelaJogo extends Canvas {
 		}	
 	}
 	
-	public void setShot(int x, int y) {
+	public void setMatrizExplosao(int x, int y) {
 		matrizExplosao[x][y] = 1;
 	}
 
