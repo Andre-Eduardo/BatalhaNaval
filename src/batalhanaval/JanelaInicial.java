@@ -17,6 +17,7 @@ public class JanelaInicial extends JFrame {
 		super("Batalha Naval");
 		setLayout(null);
 		
+		
 
 		
 		Container c2 = new JPanel();

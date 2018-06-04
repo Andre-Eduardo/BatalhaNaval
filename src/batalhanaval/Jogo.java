@@ -25,7 +25,7 @@ public class Jogo extends JFrame  {
 		Container c = getContentPane();
 		BorderLayout border = new BorderLayout();
 		c.add(BorderLayout.CENTER, canvas);
-		c.add(BorderLayout.NORTH, new JButton("Text"));
+		c.add(BorderLayout.NORTH, new MenuJogo());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Centralizar Janela

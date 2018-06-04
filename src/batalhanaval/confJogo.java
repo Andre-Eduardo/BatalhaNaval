@@ -73,8 +73,11 @@ public class confJogo extends JFrame {
 		        linhaArquivo = lerArq.readLine(); // lê da segunda até a última linha
 		        contLinhas++;
 		        if(contLinhas == 2) {
-		        	linhas = Integer.valueOf(linhaArquivo.substring(3, 5));
-		        	colunas = Integer.valueOf(linhaArquivo.substring(0,2));
+		        	 String [] tamanhoMatriz = linhaArquivo.split(" ");
+		                
+		                colunas = Integer.parseInt(tamanhoMatriz[0]);
+		                linhas = Integer.parseInt(tamanhoMatriz[1]);
+		        
 		        	matrizJogo = new int [linhas][colunas];
 		        	System.out.printf("coluna %d\n",colunas);
 		        	System.out.printf("linha %d\n",linhas);
