@@ -26,12 +26,21 @@ public class TelaJogo extends Canvas {
 	@Override
 	public void paint(Graphics g) {
 		
-		
-		ImageIcon barco1 = new ImageIcon("imagens/Battleship/ShipBattleshipHull.png");
+		// declarando as immagens
+		ImageIcon barco5 = new ImageIcon("imagens/Battleship/ShipBattleshipHull.png");//barco de tamanho 5
+		ImageIcon barco4 = new ImageIcon("imagens/Carrier/ShipCarrierHull.png"); // barco de tamanho 4
+		ImageIcon barco3 = new ImageIcon("imagens/Cruiser/ShipCruiserHull.png");//barco de tamanho 3
+		ImageIcon barco2 = new ImageIcon("imagens/Destroyer/ShipDestroyerHull.png");//barco de tamanho 2
+		ImageIcon barco1 = new ImageIcon("imagens/PatrolBoat/ShipPatrolHull.png");//barco de tamanho 1
 		ImageIcon imgAgua = new ImageIcon("imagens/ondas.jpg");
 		ImageIcon imgExplosao = new ImageIcon("imagens/explosion.png");
-		// Prepare an Image object to be used by drawImage()
-		final Image battle =  barco1.getImage();
+	
+		
+		final Image shipPatrol =  barco1.getImage();
+		final Image shipDestroyer =  barco2.getImage();
+		final Image shipCruiser =  barco3.getImage();
+		final Image shipCarrier =  barco4.getImage();
+		final Image battleship =  barco5.getImage();
 		final Image agua = imgAgua.getImage();
 		final Image explosao = imgExplosao.getImage();
 		
@@ -43,7 +52,7 @@ public class TelaJogo extends Canvas {
 
 				if(matrizExplosao[i][j] == 1) {
 					//g.drawImage(explosao, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
-					g.drawImage(battle, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+					g.drawImage(battleship, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
 				}
 			}
 
