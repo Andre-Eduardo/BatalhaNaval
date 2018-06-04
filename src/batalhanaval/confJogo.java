@@ -111,13 +111,20 @@ public class confJogo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Jogo frame = new Jogo(canvas,updateScreenThread);
+					Jogo frame = new Jogo(canvas,updateScreenThread,matrizJogo);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					 JOptionPane.showMessageDialog(null, "Nao foi possivel abrir o mapa do jogo!");
 				}
 			}
 		});
+	}
+
+
+
+
+	public int[][] getMatrizJogo() {
+		return matrizJogo;
 	}
 
 

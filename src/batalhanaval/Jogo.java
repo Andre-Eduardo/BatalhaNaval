@@ -19,7 +19,7 @@ public class Jogo extends JFrame  {
 		
 	}
 
-	public Jogo(TelaJogo canvas, ThreadJogo updateScreenThread) {
+	public Jogo(TelaJogo canvas, ThreadJogo updateScreenThread, int[][] matriJogo) {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Centralizar Janela
@@ -47,8 +47,9 @@ public class Jogo extends JFrame  {
 		        int x_pos = x/canvas.LARGURA_IMG;
 		        int y_pos = y/canvas.ALTURA_IMG;
 
+		        if (matriJogo[y_pos][x_pos] == 2 || matriJogo[y_pos][x_pos] == 1 ||matriJogo[y_pos][x_pos] == 3 || matriJogo[y_pos][x_pos] == 4|| matriJogo[y_pos][x_pos] == 5) {
 		        canvas.setMatrizExplosao(x_pos, y_pos);
-				
+		        }
 			}
 
 			@Override
