@@ -1,7 +1,10 @@
 package batalhanaval;
 
+import java.awt.BasicStroke;
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -21,11 +24,10 @@ public class TelaJogo extends Canvas {
 	}
 	@Override
 	public void paint(Graphics g) {
-
-		System.out.printf("linhasss = %d",linhas);
+		
+		
 		
 		ImageIcon imgAgua = new ImageIcon("imagens/ondas.jpg");
-
 		ImageIcon imgExplosao = new ImageIcon("imagens/explosion.png");
 		// Prepare an Image object to be used by drawImage()
 		final Image agua = imgAgua.getImage();
@@ -42,7 +44,8 @@ public class TelaJogo extends Canvas {
 				}
 			}
 
-		}	
+		}
+		PrintGrid(g);
 	}
 	
 	public void setMatrizExplosao(int x, int y) {
@@ -65,6 +68,18 @@ public class TelaJogo extends Canvas {
 		this.colunas = colunas;
 	}
 
-
+    public void PrintGrid(Graphics g){
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setStroke(new BasicStroke(1));
+        g2d.setColor(Color.BLACK);
+        
+        for (int i = 0; i < linhas + 1; i++){
+                g2d.drawLine(MARGIN, MARGIN+i*ALTURA_IMG, MARGIN+LARGURA_IMG*colunas, MARGIN+i*ALTURA_IMG);
+        }
+        
+        for (int i = 0; i < colunas + 1; i++){
+                g2d.drawLine(MARGIN+i*LARGURA_IMG, MARGIN, MARGIN+i*LARGURA_IMG, MARGIN+ALTURA_IMG*linhas);
+        }
+    }
 
 }
