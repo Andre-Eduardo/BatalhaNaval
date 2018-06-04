@@ -1,6 +1,7 @@
 package batalhanaval;
 
 import java.awt.Container;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,14 +10,15 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class confJogo extends JFrame {
 	private int larguraJ = 400, alturaJ =400 ;  // tamanho da janela
 	private int botaoAltura =80, botaoLargura =100;
 	private int contLinhas=0;
-	private int linhaMatriz;
-	private int colunaMatriz ;
+	 private static int linhas;
+	 private static int colunas ;
 	private int auxMatriz = 0; 
 	private int[] qtdEmbarcacoes= new int[5];; // cada posiçao corresponde ao tamnho de um barco e o valor armazenado a qtd de barcos desse tamanho
 	private int aux= 0;
@@ -53,36 +55,52 @@ public class confJogo extends JFrame {
 	
 	
 	
+	public static int getLinhas() {
+		return linhas;
+	}
+
+
+
+
+
+	public static int getColunas() {
+		return colunas;
+	}
+
+
+
+
+
 	public void arquivo() {
-		//JFileChooser chooser = new JFileChooser();
-		//retorno = chooser.showOpenDialog(null);
-	//	System.out.println(retorno);
+	
 		JFileChooser chooserArquivo = new JFileChooser();
-		int escolha = chooserArquivo.showOpenDialog(getParent());
+		chooserArquivo.showOpenDialog(getParent());
 		String arquivo = chooserArquivo.getSelectedFile().getAbsolutePath();
 		System.out.println(arquivo);
 		try {
 			 FileReader arq = new FileReader(arquivo);
 		      BufferedReader lerArq = new BufferedReader(arq);
 		 
-		      String linha = lerArq.readLine(); // lê a primeira linha
+		      String linhaArquivo = lerArq.readLine(); // lê a primeira linha
 		      contLinhas++;
-		      while (linha != null) {
+		      while (linhaArquivo != null) {
 		       
 		        
-		        linha = lerArq.readLine(); // lê da segunda até a última linha
+		        linhaArquivo = lerArq.readLine(); // lê da segunda até a última linha
 		        contLinhas++;
 		        if(contLinhas == 2) {
-		        	linhaMatriz = Integer.valueOf(linha.substring(3, 5));
-		        	colunaMatriz = Integer.valueOf(linha.substring(0,2));
-		        	canvas.setColunas(colunaMatriz);
-		        	canvas.setLinhas(linhaMatriz);
+		        	linhas = Integer.valueOf(linhaArquivo.substring(3, 5));
+		        	colunas = Integer.valueOf(linhaArquivo.substring(0,2));
+		        	//canvas.setColunas(colunaMatriz);
+		        	System.out.printf("coluna %d\n",colunas);
+		        	System.out.printf("linha %d\n",linhas);
+		        	//canvas.setLinhas(linhaMatriz);
 		        	
 		        }
 		        
-		        if (contLinhas > 4 && auxMatriz <= linhaMatriz ) {
+		        if (contLinhas > 4 && auxMatriz <= linhas ) {
 		        	 
-		        	 for(char c : linha.toCharArray()){
+		        	 for(char c : linhaArquivo.toCharArray()){
 		        		// canvas.setMatrizExplosao(auxMatriz, Integer.parseInt(String.valueOf(c)));
 	                      System.out.println( Integer.parseInt(String.valueOf(c)));
 	                      
@@ -90,10 +108,10 @@ public class confJogo extends JFrame {
 		        	 auxMatriz++;
 		        }
 		        
-		        if (contLinhas - linhaMatriz > 6 && contLinhas - linhaMatriz < 12) {
+		        if (contLinhas - linhas > 6 && contLinhas - linhas < 12) {
 		        	
-		        	qtdEmbarcacoes[aux] = Integer.parseInt(linha.substring(2, 3));
-		        	System.out.println(Integer.parseInt(linha.substring(2, 3)));
+		        	qtdEmbarcacoes[aux] = Integer.parseInt(linhaArquivo.substring(2, 3));
+		        	System.out.println(Integer.parseInt(linhaArquivo.substring(2, 3)));
 		        	aux++;
 
 		        }
@@ -103,5 +121,23 @@ public class confJogo extends JFrame {
 	    } catch (IOException e) {
 	        System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
 	    }
+		ThreadJogo updateScreenThread = new ThreadJogo(canvas);
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Jogo frame = new Jogo(canvas,updateScreenThread);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					 JOptionPane.showMessageDialog(null, "Nao foi possivel abrir o mapa do jogo!");
+				}
+			}
+		});
 	}
+
+
+
+
+
+
+	
 }

@@ -9,26 +9,18 @@ import javax.swing.JFrame;
 
 public class Jogo extends JFrame  {
 
-	private TelaJogo canvas = new TelaJogo();
-	ThreadJogo updateScreenThread = new ThreadJogo(canvas);
+	//private TelaJogo canvas = new TelaJogo();
+//	ThreadJogo updateScreenThread = new ThreadJogo(canvas);
 	
 	
 	
 	public static void main(String[] args) {
 		new JanelaInicial();
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Jogo frame = new Jogo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		
 	}
 
-	public Jogo() {
+	public Jogo(TelaJogo canvas, ThreadJogo updateScreenThread) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Centralizar Janela
 		setLocationRelativeTo(null);

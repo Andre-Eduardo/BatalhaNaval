@@ -10,13 +10,13 @@ public class TelaJogo extends Canvas {
 	public static final int LARGURA_IMG = 80;
 	public static final int ALTURA_IMG = 80;
 	public static final int MARGIN = 0;
-	private int linhas= 5 ;
-	private int colunas= 5; // deve ser lido do arquivo
+	private int linhas= confJogo.getLinhas() ;
+	private int colunas = confJogo.getColunas(); // deve ser lido do arquivo
 	private int[][] matrizExplosao = new int [colunas][linhas];
 	@Override
 	public void paint(Graphics g) {
 
-		
+		System.out.printf("linhasss = %d",linhas);
 		
 		ImageIcon imgAgua = new ImageIcon("imagens/ondas.jpg");
 
