@@ -10,9 +10,15 @@ public class TelaJogo extends Canvas {
 	public static final int LARGURA_IMG = 80;
 	public static final int ALTURA_IMG = 80;
 	public static final int MARGIN = 0;
-	private int linhas= confJogo.getLinhas() ;
-	private int colunas = confJogo.getColunas(); // deve ser lido do arquivo
-	private int[][] matrizExplosao = new int [colunas][linhas];
+	private int linhas; 
+	private int colunas;  // deve ser lido do arquivo
+	private int[][] matrizExplosao;
+	
+	public TelaJogo(int linha, int coluna) {
+		setLinhas(linha);
+		setColunas(coluna);
+		matrizExplosao = new int [colunas][linhas];
+	}
 	@Override
 	public void paint(Graphics g) {
 

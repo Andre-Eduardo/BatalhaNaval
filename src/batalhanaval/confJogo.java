@@ -18,11 +18,11 @@ public class confJogo extends JFrame {
 	private int botaoAltura =80, botaoLargura =100;
 	private int contLinhas=0;
 	 private static int linhas;
-	 private static int colunas ;
+	 private static int colunas;
 	private int auxMatriz = 0; 
 	private int[] qtdEmbarcacoes= new int[5];; // cada posiçao corresponde ao tamnho de um barco e o valor armazenado a qtd de barcos desse tamanho
 	private int aux= 0;
-	private TelaJogo canvas = new TelaJogo();
+	private TelaJogo canvas ;
 	public confJogo() {
 		super("Batalha Naval");
 		setLayout(null);
@@ -52,23 +52,6 @@ public class confJogo extends JFrame {
 	}
 	
 	
-	
-	
-	
-	public static int getLinhas() {
-		return linhas;
-	}
-
-
-
-
-
-	public static int getColunas() {
-		return colunas;
-	}
-
-
-
 
 
 	public void arquivo() {
@@ -91,10 +74,10 @@ public class confJogo extends JFrame {
 		        if(contLinhas == 2) {
 		        	linhas = Integer.valueOf(linhaArquivo.substring(3, 5));
 		        	colunas = Integer.valueOf(linhaArquivo.substring(0,2));
-		        	//canvas.setColunas(colunaMatriz);
+		       
 		        	System.out.printf("coluna %d\n",colunas);
 		        	System.out.printf("linha %d\n",linhas);
-		        	//canvas.setLinhas(linhaMatriz);
+		        	
 		        	
 		        }
 		        
@@ -121,6 +104,7 @@ public class confJogo extends JFrame {
 	    } catch (IOException e) {
 	        System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
 	    }
+		 canvas = new TelaJogo(linhas, colunas);
 		ThreadJogo updateScreenThread = new ThreadJogo(canvas);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -132,6 +116,20 @@ public class confJogo extends JFrame {
 				}
 			}
 		});
+	}
+
+
+
+
+	public static int getLinhas() {
+		return linhas;
+	}
+
+
+
+
+	public static int getColunas() {
+		return colunas;
 	}
 
 
