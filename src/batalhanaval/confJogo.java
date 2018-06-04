@@ -14,17 +14,12 @@ import javax.swing.JPanel;
 public class confJogo extends JFrame {
 	private int larguraJ = 400, alturaJ =400 ;  // tamanho da janela
 	private int botaoAltura =80, botaoLargura =100;
-	private int retorno;
 	private int contLinhas=0;
 	private int linhaMatriz;
 	private int colunaMatriz ;
-	private char[] linhaVetor ;
 	private int auxMatriz = 0; 
-	private int qtdEmbarcacoes5;
-	private int qtdEmbarcacoes4;
-	private int qtdEmbarcacoes3;
-	private int qtdEmbarcacoes2;
-	private int qtdEmbarcacoes1;
+	private int[] qtdEmbarcacoes= new int[5];; // cada posiçao corresponde ao tamnho de um barco e o valor armazenado a qtd de barcos desse tamanho
+	private int aux= 0;
 	private TelaJogo canvas = new TelaJogo();
 	public confJogo() {
 		super("Batalha Naval");
@@ -86,17 +81,21 @@ public class confJogo extends JFrame {
 		        }
 		        
 		        if (contLinhas > 4 && auxMatriz <= linhaMatriz ) {
-		        	 linhaVetor = linha.toCharArray();
 		        	 
 		        	 for(char c : linha.toCharArray()){
-		        		 canvas.setMatrizExplosao(auxMatriz, Integer.valueOf(c));
-	                      System.out.println("Char: "+c);
+		        		// canvas.setMatrizExplosao(auxMatriz, Integer.parseInt(String.valueOf(c)));
+	                      System.out.println( Integer.parseInt(String.valueOf(c)));
 	                      
 	               }
 		        	 auxMatriz++;
 		        }
+		        
 		        if (contLinhas - linhaMatriz > 6 && contLinhas - linhaMatriz < 12) {
 		        	
+		        	qtdEmbarcacoes[aux] = Integer.parseInt(linha.substring(2, 3));
+		        	System.out.println(Integer.parseInt(linha.substring(2, 3)));
+		        	aux++;
+
 		        }
 		}
 		
