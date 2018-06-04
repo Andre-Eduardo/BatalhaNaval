@@ -1,10 +1,12 @@
 package batalhanaval;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class Jogo extends JFrame  {
@@ -20,14 +22,18 @@ public class Jogo extends JFrame  {
 	}
 
 	public Jogo(TelaJogo canvas, ThreadJogo updateScreenThread, int[][] matriJogo) {
+		Container c = getContentPane();
+		BorderLayout border = new BorderLayout();
+		c.add(BorderLayout.CENTER, canvas);
+		c.add(BorderLayout.NORTH, new JButton("Text"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Centralizar Janela
 		setLocationRelativeTo(null);
 		
-		getContentPane().setLayout(new BorderLayout());
+		//getContentPane().setLayout(new BorderLayout());
 		setTitle("Batalha Naval");
-		getContentPane().add("Center", canvas);
+		//getContentPane().add("Center", canvas);
 		
 		// Define largura e altura da janela principal
 		setSize(canvas.LARGURA_IMG * canvas.getColunas(), canvas.ALTURA_IMG * canvas.getLinhas());

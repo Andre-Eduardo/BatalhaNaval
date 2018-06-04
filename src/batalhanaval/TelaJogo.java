@@ -22,6 +22,7 @@ public class TelaJogo extends Canvas {
 		setColunas(coluna);
 		matrizExplosao = new int [colunas][linhas];
 	}
+
 	@Override
 	public void paint(Graphics g) {
 		
