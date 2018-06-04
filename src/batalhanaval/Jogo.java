@@ -23,9 +23,8 @@ public class Jogo extends JFrame  {
 
 	public Jogo(TelaJogo canvas, ThreadJogo updateScreenThread, int[][] matriJogo) {
 		Container c = getContentPane();
-		BorderLayout border = new BorderLayout();
 		c.add(BorderLayout.CENTER, canvas);
-		c.add(BorderLayout.NORTH, new MenuJogo());
+		c.add(BorderLayout.WEST, new MenuJogo());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Centralizar Janela
@@ -36,7 +35,7 @@ public class Jogo extends JFrame  {
 		//getContentPane().add("Center", canvas);
 		
 		// Define largura e altura da janela principal
-		setSize(canvas.LARGURA_IMG * canvas.getColunas(), canvas.ALTURA_IMG * canvas.getLinhas());
+		setSize(TelaJogo.LARGURA_IMG * (canvas.getColunas()+1) , TelaJogo.ALTURA_IMG * (canvas.getLinhas()+1));
 		
 		setVisible(true);
 		

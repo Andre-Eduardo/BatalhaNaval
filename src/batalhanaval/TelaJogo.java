@@ -27,10 +27,11 @@ public class TelaJogo extends Canvas {
 	public void paint(Graphics g) {
 		
 		
-		
+		ImageIcon barco1 = new ImageIcon("imagens/Battleship/ShipBattleshipHull.png");
 		ImageIcon imgAgua = new ImageIcon("imagens/ondas.jpg");
 		ImageIcon imgExplosao = new ImageIcon("imagens/explosion.png");
 		// Prepare an Image object to be used by drawImage()
+		final Image battle =  barco1.getImage();
 		final Image agua = imgAgua.getImage();
 		final Image explosao = imgExplosao.getImage();
 		
@@ -41,7 +42,8 @@ public class TelaJogo extends Canvas {
 				
 
 				if(matrizExplosao[i][j] == 1) {
-					g.drawImage(explosao, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+					//g.drawImage(explosao, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+					g.drawImage(battle, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
 				}
 			}
 
