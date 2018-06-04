@@ -20,6 +20,7 @@ public class confJogo extends JFrame {
 	 private static int linhas;
 	 private static int colunas;
 	private int auxMatriz = 0; 
+	private int[][] matrizJogo;
 	private int[] qtdEmbarcacoes= new int[5];; // cada posiçao corresponde ao tamnho de um barco e o valor armazenado a qtd de barcos desse tamanho
 	private int aux= 0;
 	private TelaJogo canvas ;
@@ -74,7 +75,7 @@ public class confJogo extends JFrame {
 		        if(contLinhas == 2) {
 		        	linhas = Integer.valueOf(linhaArquivo.substring(3, 5));
 		        	colunas = Integer.valueOf(linhaArquivo.substring(0,2));
-		       
+		        	matrizJogo = new int [linhas][colunas];
 		        	System.out.printf("coluna %d\n",colunas);
 		        	System.out.printf("linha %d\n",linhas);
 		        	
@@ -82,11 +83,12 @@ public class confJogo extends JFrame {
 		        }
 		        
 		        if (contLinhas > 4 && auxMatriz <= linhas ) {
-		        	 
+		        	 int j = 0; 
 		        	 for(char c : linhaArquivo.toCharArray()){
-		        		// canvas.setMatrizExplosao(auxMatriz, Integer.parseInt(String.valueOf(c)));
+		        		
+		        		 matrizJogo[auxMatriz][j] = Integer.parseInt(String.valueOf(c));
 	                      System.out.println( Integer.parseInt(String.valueOf(c)));
-	                      
+	                      j++;
 	               }
 		        	 auxMatriz++;
 		        }
@@ -119,18 +121,6 @@ public class confJogo extends JFrame {
 	}
 
 
-
-
-	public static int getLinhas() {
-		return linhas;
-	}
-
-
-
-
-	public static int getColunas() {
-		return colunas;
-	}
 
 
 
