@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class JanelaInicial extends JFrame {
-	private int larguraJ = 400, alturaJ =400 ;  // tamanho da janela
+	private int larguraJ = 200, alturaJ =300 ;  // tamanho da janela
 	private int botaoAltura =80, botaoLargura =100;
 
 	

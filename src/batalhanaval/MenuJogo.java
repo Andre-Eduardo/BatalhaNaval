@@ -19,11 +19,11 @@ public class MenuJogo extends JPanel {
 	JLabel at2Posicao = new JLabel("Atacar 2x2");
 	JLabel atLinha = new JLabel("Atacar linha");
 	JLabel vazio = new JLabel(" -- ");
-	JLabel vazio2 = new JLabel(" -- ");
-	JRadioButton radio = new JRadioButton("oooo");
-	JRadioButton radio2 = new JRadioButton("oooo");
-	JRadioButton radio3 = new JRadioButton("oooo");
-	JRadioButton radio4 = new JRadioButton("oooo");
+	JLabel vazio2 = new JLabel(" 100 ");
+	JRadioButton radio = new JRadioButton("5");
+	JRadioButton radio2 = new JRadioButton("10");
+	JRadioButton radio3 = new JRadioButton("15");
+	JRadioButton radio4 = new JRadioButton("20");
 	
 	public MenuJogo() {
 		
@@ -42,6 +42,7 @@ public class MenuJogo extends JPanel {
 		add(radio3);
 		add(atLinha);
 		add(radio4);
+		
 		
 		
 	}
