@@ -11,9 +11,9 @@ import javax.swing.JFrame;
 
 public class Jogo extends JFrame  {
 
-	//private TelaJogo canvas = new TelaJogo();
-//	ThreadJogo updateScreenThread = new ThreadJogo(canvas);
-	
+
+	 private int x_pos ;
+	 private int y_pos;
 	
 	
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Jogo extends JFrame  {
 		
 	}
 
-	public Jogo(TelaJogo canvas, ThreadJogo updateScreenThread, int[][] matriJogo) {
+	public Jogo(TelaJogo canvas, ThreadJogo updateScreenThread, int[][] matrizJogo) {
 		Container c = getContentPane();
 		c.add(BorderLayout.CENTER, canvas);
 		c.add(BorderLayout.WEST, new MenuJogo());
@@ -30,9 +30,9 @@ public class Jogo extends JFrame  {
 		// Centralizar Janela
 		setLocationRelativeTo(null);
 		
-		//getContentPane().setLayout(new BorderLayout());
+		
 		setTitle("Batalha Naval");
-		//getContentPane().add("Center", canvas);
+		
 		
 		// Define largura e altura da janela principal
 		setSize(TelaJogo.LARGURA_IMG * (canvas.getColunas()+1) , TelaJogo.ALTURA_IMG * (canvas.getLinhas()+1));
@@ -49,12 +49,14 @@ public class Jogo extends JFrame  {
 		        int x=e.getX();
 		        int y=e.getY();
 				
-		        int x_pos = x/canvas.LARGURA_IMG;
-		        int y_pos = y/canvas.ALTURA_IMG;
+		       x_pos = x/canvas.LARGURA_IMG;
+		       y_pos = y/canvas.ALTURA_IMG;
 
-		        if (matriJogo[y_pos][x_pos] == 2 || matriJogo[y_pos][x_pos] == 1 ||matriJogo[y_pos][x_pos] == 3 || matriJogo[y_pos][x_pos] == 4|| matriJogo[y_pos][x_pos] == 5) {
-		        canvas.setMatrizExplosao(x_pos, y_pos);
-		        }
+		       
+		       if (matrizJogo [y_pos] [x_pos] ==  2  || matrizJogo [y_pos] [x_pos] ==  1  || matrizJogo [y_pos] [x_pos] ==  3  || matrizJogo [y_pos] [x_pos] ==  4 || matrizJogo [y_pos] [x_pos] ==  5 ) {
+			        canvas.setMatrizExplosao (x_pos, y_pos);
+			        }
+		        
 			}
 
 			@Override
@@ -75,6 +77,7 @@ public class Jogo extends JFrame  {
 
 
 		});
+		
 	}
 
 	

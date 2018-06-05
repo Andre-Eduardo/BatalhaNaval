@@ -109,7 +109,7 @@ public class confJogo extends JFrame {
 	    } catch (IOException e) {
 	        System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
 	    }
-		 canvas = new TelaJogo(linhas, colunas);
+		 canvas = new TelaJogo(linhas, colunas,matrizJogo,qtdEmbarcacoes);
 		ThreadJogo updateScreenThread = new ThreadJogo(canvas);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

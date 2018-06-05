@@ -16,13 +16,25 @@ public class TelaJogo extends Canvas {
 	private int linhas; 
 	private int colunas;  // deve ser lido do arquivo
 	private int[][] matrizExplosao;
-	
-	public TelaJogo(int linha, int coluna) {
+	private int[][] matrizCordenadas;
+	private int[] cont = {0,0,0,0,0};
+	private int[]qtdEmbarcacoes;
+	private int x;
+	private int y;
+	public TelaJogo(int linha, int coluna, int [][]matrizJogo,int []qtdBarcos) {
 		setLinhas(linha);
 		setColunas(coluna);
+		qtdEmbarcacoes = qtdBarcos.clone();
 		matrizExplosao = new int [colunas][linhas];
+		matrizCordenadas = new int [colunas][linhas];
+		for (int i = 0; i < linha; i++) {
+			for (int j = 0; j < coluna; j++) {
+				matrizCordenadas[i][j] = matrizJogo[i][j];
+			}
+		}
 	}
 
+	
 	@Override
 	public void paint(Graphics g) {
 		
@@ -51,17 +63,69 @@ public class TelaJogo extends Canvas {
 				
 
 				if(matrizExplosao[i][j] == 1) {
-					//g.drawImage(explosao, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
-					g.drawImage(battleship, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+					g.drawImage(explosao, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+					//g.drawImage(battleship, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+				}
+				
+				switch (matrizCordenadas[x][y]) {
+				case 1:
+					cont[0]++;
+				if (cont[0] == qtdEmbarcacoes[0]) {
+					// repintar o fundo da tela 
+					
+					g.drawImage(shipPatrol, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+				}
+				break;
+
+				case 2:
+				cont[1]++;
+			if (cont[1] == qtdEmbarcacoes[1]) {
+				// repintar o fundo da tela 
+				
+				g.drawImage(shipDestroyer, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+			}
+				break;
+				case 3:
+				cont[2]++;
+			if (cont[2] == qtdEmbarcacoes[2]) {
+				// repintar o fundo da tela 
+				
+				g.drawImage(shipCruiser, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+			}			
+				break;
+				case 4:
+				cont[3]++;
+			if (cont[3] == qtdEmbarcacoes[3]) {
+				// repintar o fundo da tela 
+				
+				g.drawImage(shipCarrier, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+			}
+				break;
+				case 5:
+				cont[4]++;
+			if (cont[4] == qtdEmbarcacoes[4]) {
+				// repintar o fundo da tela 
+				
+				g.drawImage(battleship, i*LARGURA_IMG+MARGIN, j*ALTURA_IMG+MARGIN, LARGURA_IMG, ALTURA_IMG, null);
+			}
+				break;
+				
+				default:
+					break;
 				}
 			}
 
 		}
+		
+		
+		
 		PrintGrid(g);
 	}
 	
 	public void setMatrizExplosao(int x, int y) {
 		matrizExplosao[x][y] = 1;
+		setX(x);
+		setY(y);
 	}
 
 	public int getLinhas() {
@@ -80,7 +144,18 @@ public class TelaJogo extends Canvas {
 		this.colunas = colunas;
 	}
 
-    public void PrintGrid(Graphics g){
+	
+    public void setX(int x) {
+		this.x = x;
+	}
+
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+
+	public void PrintGrid(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setStroke(new BasicStroke(1));
         g2d.setColor(Color.BLACK);
