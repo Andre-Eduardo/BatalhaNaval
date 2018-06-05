@@ -21,6 +21,7 @@ public class TelaJogo extends Canvas {
 	private int[]qtdEmbarcacoes;
 	private int x;
 	private int y;
+	
 	public TelaJogo(int linha, int coluna, int [][]matrizJogo,int []qtdBarcos) {
 		setLinhas(linha);
 		setColunas(coluna);
@@ -35,6 +36,16 @@ public class TelaJogo extends Canvas {
 	}
 
 	
+	public int getX() {
+		return x;
+	}
+
+
+	public int getY() {
+		return y;
+	}
+
+
 	@Override
 	public void paint(Graphics g) {
 		
