@@ -12,7 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+// classe que le o arquivo e configura o jogo
 public class confJogo extends JFrame {
 	private int larguraJ = 400, alturaJ =400 ;  // tamanho da janela
 	private int botaoAltura =80, botaoLargura =100;
