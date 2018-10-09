@@ -1,5 +1,4 @@
 # BatalhaNaval
-=========================
 
 Desenvolvimento de um jogo de batalha naval para apenas um jogador 
 
